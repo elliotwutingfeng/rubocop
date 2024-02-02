@@ -311,7 +311,7 @@ module RuboCop
       # excessively high number of iterations, this is likely happening.
       iterations = 0
 
-      loop do
+      while true # rubocop:disable Style/InfiniteLoop
         check_for_infinite_loop(source, offenses_by_iteration)
 
         if (iterations += 1) > MAX_ITERATIONS

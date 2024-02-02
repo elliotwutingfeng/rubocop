@@ -221,7 +221,7 @@ module RuboCop
           # codebase
           node.each_ancestor(:class, :module, :casgn) do |ancestor|
             namespace, mod_name = *ancestor.defined_module
-            loop do
+            while true # rubocop:disable Style/InfiniteLoop
               if mod_name == const_name
                 return qualified_name(ancestor.parent_module_name, namespace, mod_name)
               end
